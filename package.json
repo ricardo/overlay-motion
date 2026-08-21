@@ -1,0 +1,90 @@
+{
+  "name": "overlay-motion",
+  "version": "0.7.0",
+  "description": "Video templates that wear the customer's brand. One JSON edit spec in, a rendered branded video out. Built on Remotion.",
+  "keywords": [
+    "remotion",
+    "video",
+    "video-editing",
+    "motion-graphics",
+    "templates",
+    "captions",
+    "subtitles",
+    "branding",
+    "react",
+    "ai-agent"
+  ],
+  "homepage": "https://overlaymotion.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardo/overlay-motion.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ricardo/overlay-motion/issues"
+  },
+  "author": "Ricardo Metring",
+  "license": "SEE LICENSE IN LICENSE",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "//exports": "The engine's public surface. Consumers (the website, a customer project, the pro pack) import these paths; everything else is internal and free to move. Source is shipped as TypeScript on purpose: every consumer runs a bundler that compiles it (Vite, Remotion), which keeps one copy of the code and real types with no build step in between.",
+  "//exports.remotion": "`./remotion` is the registerRoot entry, not importable app code: consumers that render headlessly resolve its path and hand it to @remotion/bundler.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./spec": "./src/spec/types.ts",
+    "./spec/validate": "./src/spec/validate.ts",
+    "./spec/regions": "./src/spec/regions.ts",
+    "./player/SpecRenderer": "./src/player/SpecRenderer.tsx",
+    "./templates": "./src/templates/registry.ts",
+    "./templates/catalog": "./src/templates/catalog.ts",
+    "./templates/types": "./src/templates/types.ts",
+    "./templates/schema-rows": "./src/templates/schema-rows.ts",
+    "./theme": "./src/theme/themes.tsx",
+    "./sound": "./src/sound/engine.ts",
+    "./sound/config": "./src/sound/config.ts",
+    "./sound/Sfx": "./src/sound/Sfx.tsx",
+    "./sound/usePlayerSfxSync": "./src/sound/usePlayerSfxSync.ts",
+    "./agent": "./src/agent/policy.ts",
+    "./update": "./src/update/policy.ts",
+    "./remotion": "./remotion/index.ts",
+    "./assets/*": "./public/*",
+    "./docs/*": "./docs/*",
+    "./LICENSE": "./LICENSE",
+    "./LICENSE-COMMERCIAL.md": "./LICENSE-COMMERCIAL.md",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "tsx --test tests/*.test.ts",
+    "agent:guide": "tsx scripts/build-agent-guide.mts",
+    "om:check": "tsx scripts/update.mts",
+    "typecheck": "tsc --noEmit",
+    "studio": "remotion studio remotion/index.ts",
+    "render": "remotion render remotion/index.ts",
+    "demo-audio": "node scripts/make-demo-audio.mjs",
+    "sfx": "node scripts/make-sfx.mjs"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "@remotion/media-utils": "4.0.508",
+    "@remotion/player": "4.0.508",
+    "d3-geo": "^3.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "4.0.508",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@remotion/bundler": "4.0.508",
+    "@remotion/cli": "4.0.508",
+    "@remotion/renderer": "4.0.508",
+    "@types/d3-geo": "^3.1.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/topojson-client": "^3.1.5",
+    "tsx": "^4.20.6",
+    "typescript": "~6.0.3"
+  }
+}

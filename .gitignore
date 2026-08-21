@@ -1,0 +1,21 @@
+node_modules/
+build/
+dist/
+.DS_Store
+*.log
+playwright-report/
+test-results/
+dev-assets/projects/*.mp4
+dev-assets/projects/*.mov
+
+# secrets + generated + personal media (see ceo/infra/overlaymotion-repo-sweep.md)
+.env
+.react-router/
+renders/
+dev-assets/
+
+# personal field-test footage, never in the repo
+public/projects/
+
+# update-check cache, per checkout
+.overlay-motion/

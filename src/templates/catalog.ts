@@ -1,0 +1,33 @@
+/** Lightweight catalog metadata safe to import from routing and shell code. */
+export const TEMPLATE_SLUGS = [
+  "chat-bubbles",
+  "quote-card",
+  "checklist-steps",
+  "like-subscribe",
+  "hero-title",
+  "audiogram",
+  "world-globe",
+  "bullet-steps",
+  "numbered-steps",
+  "logo-sting",
+  "speaker-card",
+  "stat-counter",
+  "before-after",
+  "bar-chart",
+  "line-chart",
+  "tweet-card",
+  "like-subscribe-bell",
+  "blur-focus-text",
+  "caption-classic",
+  "news-highlight",
+  "video-card",
+  "b-roll",
+  "countdown",
+  "ticker-tape",
+  "recording-frame",
+  "sticker",
+  "face-bubble",
+  "prompt-box",
+] as const;
+
+export const TEMPLATE_COUNT = TEMPLATE_SLUGS.length;
