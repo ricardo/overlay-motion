@@ -4,7 +4,7 @@
  */
 import { AGENT_PLAYBOOK } from "./guide.generated";
 
-export const AGENT_POLICY_VERSION = 12 as const;
+export const AGENT_POLICY_VERSION = 13 as const;
 
 export const EDITORIAL_DEFAULTS = {
   decisionOrder: [
@@ -263,7 +263,7 @@ export const INTAKE = {
   requestChecks: [
     {
       id: "brand-without-assets",
-      when: "brand or logo treatment is requested and no brand asset was supplied",
+      when: "a real logo, wordmark, or brand mark is requested and no matching asset was supplied",
       verdict: "blocking",
       why: "a real logo is never fabricated, at any confidence",
     },
@@ -289,7 +289,7 @@ export const INTAKE = {
     },
     {
       id: "cutout-without-a-backdrop",
-      when: "background removal is requested without saying what arrives behind the subject",
+      when: "explicit background removal is requested without saying what arrives behind the subject",
       verdict: "ask",
       question: "What sits behind the cutout, and does it get an outline?",
       why: "each answer re-renders, and asking twice costs two renders",

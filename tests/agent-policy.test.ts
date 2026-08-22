@@ -30,7 +30,7 @@ const TRACKING = doc(AGENT_DOCS.features.tracking.doc);
 const MUSIC = doc(AGENT_DOCS.features.music.doc);
 
 test("canonical agent policy requires cut-first forced subtitle alignment", () => {
-  assert.equal(AGENT_POLICY_VERSION, 12);
+  assert.equal(AGENT_POLICY_VERSION, 13);
   assert.equal(EDITORIAL_DEFAULTS.captions.lockCutsBeforeAlignment, true);
   assert.equal(EDITORIAL_DEFAULTS.captions.alignAgainst, "final-cut-audio");
   assert.equal(EDITORIAL_DEFAULTS.captions.verifyTranscriptCopy, true);
@@ -167,7 +167,7 @@ test("the served guide is the playbook, regenerated", () => {
     generate(),
     "src/agent/guide.generated.ts is stale: run `npm run agent:guide`",
   );
-  assert.match(AGENT_GUIDE, /^OverlayMotion agent contract v12\n\n# Editing agent playbook/);
+  assert.match(AGENT_GUIDE, /^OverlayMotion agent contract v13\n\n# Editing agent playbook/);
 });
 
 test("the contract carries the rules that apply to every edit", () => {
@@ -184,6 +184,8 @@ test("the contract carries the rules that apply to every edit", () => {
   assert.match(AGENT_GUIDE, phrase("retag HDR footage as SDR"));
   assert.match(AGENT_GUIDE, phrase("unexplained shift is not approved"));
   assert.match(AGENT_GUIDE, /scripts\/check-intake\.py/);
+  assert.match(AGENT_GUIDE, phrase("registered OverlayMotion template"));
+  assert.match(AGENT_GUIDE, phrase("Do not recreate a registered visual"));
   assert.match(AGENT_GUIDE, phrase("at most three questions"));
   assert.match(AGENT_GUIDE, phrase("rejects a plan carrying an unanswered blocking question"));
   assert.match(AGENT_GUIDE, phrase("Keyframes, rotation and `crop` are not; do not author them"));

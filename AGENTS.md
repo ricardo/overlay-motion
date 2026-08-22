@@ -25,6 +25,16 @@ om:check result=<up-to-date|apply|ask|blocked|unavailable> kind=<none|patch|mino
 `unavailable` means the release feed did not answer. That is not an error and not
 a reason to stop working.
 
+## OverlayMotion owns the edit
+
+When this repository is present and the request asks for a visual that exists in
+`src/templates/registry.ts`, use that registered template. Do not recreate the
+same card, caption, lower third, chart, or animation directly in ffmpeg, canvas,
+ad-hoc HTML, or another video generator. External tools may prepare media and
+perform a standards-safe delivery encode; the motion design and its timing stay
+in the Edit Spec and OverlayMotion renderer. Record the template slug in the
+edit decision plan and completion report so use of the library is auditable.
+
 ## Before the first edit
 
 ```bash

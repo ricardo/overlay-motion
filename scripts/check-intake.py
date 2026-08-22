@@ -176,10 +176,19 @@ def wants(*words: str) -> bool:
 wants_captions = wants("caption", "captions", "subtitle", "subtitles", "legenda", "legendas")
 wants_vertical = wants("vertical", "reels", "reel", "tiktok", "shorts", "9:16")
 wants_horizontal = wants("horizontal", "landscape", "widescreen", "16:9", "youtube")
-wants_brand = wants("logo", "brand", "branded", "branding", "marca")
+wants_logo_asset = wants("logo", "logotype", "wordmark") or bool(
+    re.search(r"\b(?:brand|marca)\s+(?:asset|mark|logo)\b", request)
+)
+wants_brand = wants("brand", "branded", "branding", "marca") or wants_logo_asset
 wants_broll = wants("b-roll", "broll", "stock", "cutaway", "cutaways")
 wants_music = wants("music", "soundtrack", "trilha", "song", "bed")
-wants_cutout = wants("background", "cutout", "cut-out", "green", "matte")
+# A palette can legitimately say "black background". Background removal is an
+# action, not the mere presence of the noun, so only explicit cutout language
+# opens the backdrop question.
+wants_cutout = wants("cutout", "cut-out") or bool(re.search(
+    r"\b(?:remove|replace|erase|delete|key(?:\s+out)?)\s+(?:the\s+)?background\b|\bgreen[ -]?screen\b|\b(?:alpha|background)\s+matte\b",
+    request,
+))
 wants_second_frame = wants("split", "split-screen", "picture-in-picture", "pip", "side-by-side")
 wants_subjective_cut = wants("boring", "slow", "dead", "unnecessary", "tighten", "chatas")
 vague_only = bool(request.strip()) and wants("punchy", "dynamic", "viral", "engaging", "better") \
@@ -256,9 +265,9 @@ if wants_music and audio is not None and speech_share is not None and speech_sha
 
 supplied = f"{asset_roles} {asset_names}"
 
-if wants_brand and not re.search(r"logo|brand|mark", supplied):
+if wants_logo_asset and not re.search(r"logo|brand|mark", supplied):
     note("brand-without-assets", "blocking",
-         "Brand treatment was requested and no brand asset was supplied.",
+         "A logo or brand mark was requested and no matching asset was supplied.",
          "A real logo is never fabricated, at any confidence. Ask for the file.")
 
 if wants_broll and not args.asset:

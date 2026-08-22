@@ -13,6 +13,14 @@ rendering input. Machine-readable defaults and the plan schema live in
 This page is what applies to every edit. Anything that applies to one kind of
 request lives in its own file, and you open that file when the request names it.
 
+## Renderer ownership
+
+When a requested visual exists in `src/templates/registry.ts`, use that
+registered OverlayMotion template and record its slug in the plan. Do not
+recreate a registered visual with ffmpeg drawing filters, canvas, ad-hoc HTML,
+or another generator. Those tools may prepare media or perform the verified
+delivery encode; OverlayMotion owns the motion design and timing.
+
 ## Open only what the job asks for
 
 | The request involves | Read this first |

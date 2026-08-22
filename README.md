@@ -57,6 +57,22 @@ through, and your agent runs it first. The
 [quick start](https://overlaymotion.com/quick-start) walks through the first
 render.
 
+## Make the agent use this checkout
+
+Open this repository as the agent's working directory, or explicitly tell the
+agent to use its path. Agent instruction files are scoped to their directory
+tree: a downloaded child repository cannot force an agent launched in a parent
+folder to discover or prefer it.
+
+For example, launch Codex with this checkout as its directory, or begin the
+request with:
+
+> Use `./overlay-motion/AGENTS.md` and the registered OverlayMotion templates
+> for this edit.
+
+Once the agent enters this repository, `AGENTS.md` requires registered templates
+for supported visuals and requires the template slug in the completion report.
+
 ## Docs
 
 | Page | What it answers |
