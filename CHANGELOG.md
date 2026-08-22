@@ -20,6 +20,24 @@ prop is breaking, whatever the version number says.
 
 Nothing yet.
 
+## 0.7.1
+
+### Added
+- The agent contract now requires registered OverlayMotion templates whenever a
+  requested visual already exists in the registry. External tools may prepare
+  media or perform a verified delivery encode, but the Edit Spec and renderer
+  own motion design and timing. Plans and completion reports name the template
+  slug so use of the library is auditable.
+- The README now explains agent instruction scope: open this checkout as the
+  working directory, or explicitly point the agent at its `AGENTS.md`. A child
+  repository cannot force an agent launched above it to discover its rules.
+
+### Fixed
+- Palette phrases such as "black background and white text" no longer trigger
+  the background-removal intake question.
+- Brand colors and themes no longer require a logo asset. Requests for a real
+  logo, wordmark, or brand mark still block until the matching asset is supplied.
+
 ## 0.7.0
 
 First public release. The version jumps from the private beta's 0.1.0 on
