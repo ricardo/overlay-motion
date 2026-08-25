@@ -1,6 +1,6 @@
 {
   "name": "overlay-motion",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "Video templates that wear the customer's brand. One JSON edit spec in, a rendered branded video out. Built on Remotion.",
   "keywords": [
     "remotion",
