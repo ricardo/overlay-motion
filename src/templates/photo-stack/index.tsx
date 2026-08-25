@@ -157,9 +157,9 @@ export const photoStackDef: TemplateDef = {
   schema: photoStackSchema,
   demoProps: {
     photos: [
-      { src: "/demo/photo-stack-storyboard.png" },
-      { src: "/demo/photo-stack-camera.png", focus: "center 42%" },
-      { src: "/demo/photo-stack-review.png", focus: "center 40%" },
+      { src: "/demo/photo-stack-storyboard.webp" },
+      { src: "/demo/photo-stack-camera.webp", focus: "center 42%" },
+      { src: "/demo/photo-stack-review.webp", focus: "center 40%" },
     ],
   },
   demoDurationSec: 7,
