@@ -34,6 +34,9 @@ import { stickerDef } from "./sticker";
 import { faceBubbleDef } from "./face-bubble";
 import { promptBoxDef } from "./prompt-box";
 import { cortisolGaugeDef } from "./cortisol-gauge";
+import { donutBreakdownDef } from "./donut-breakdown";
+import { donutChartDef } from "./donut-chart";
+import { photoStackDef } from "./photo-stack";
 
 const TEMPLATE_DEFINITIONS: TemplateDef[] = [
   chatBubblesDef,
@@ -65,6 +68,9 @@ const TEMPLATE_DEFINITIONS: TemplateDef[] = [
   faceBubbleDef,
   promptBoxDef,
   cortisolGaugeDef,
+  donutBreakdownDef,
+  donutChartDef,
+  photoStackDef,
 ];
 
 /** All templates are free during the public-library launch. */

@@ -5,6 +5,9 @@ import { captionClassicDef } from "../src/templates/caption-classic";
 import { CAPTION_PRESETS } from "../src/templates/caption-classic/presets";
 import { blurFocusTextDef } from "../src/templates/blur-focus-text";
 import { TEMPLATE_SLUGS } from "../src/templates/catalog";
+import { donutBreakdownDef } from "../src/templates/donut-breakdown";
+import { donutChartDef } from "../src/templates/donut-chart";
+import { photoStackDef } from "../src/templates/photo-stack";
 import { logoStingDef } from "../src/templates/logo-sting";
 import { quoteCardDef } from "../src/templates/quote-card";
 import { stickerDef } from "../src/templates/sticker";
@@ -15,7 +18,37 @@ import { parsedMetadata } from "../remotion/Root";
 
 test("lightweight route catalog stays aligned with template registry", () => {
   assert.deepEqual(TEMPLATE_SLUGS, TEMPLATES.map((template) => template.slug));
-  assert.equal(TEMPLATE_SLUGS.at(-1), "cortisol-gauge");
+  assert.equal(TEMPLATE_SLUGS.at(-1), "photo-stack");
+});
+
+test("new template schemas normalize reusable motion controls", () => {
+  const donut = donutBreakdownDef.schema.parse({
+    title: "Mix",
+    data: [
+      { label: "A", value: 60 },
+      { label: "B", value: 40 },
+    ],
+  }) as { showPercent: boolean; decimals: number; data: { highlight: boolean }[] };
+  assert.equal(donut.showPercent, true);
+  assert.equal(donut.decimals, 0);
+  assert.deepEqual(donut.data.map((item) => item.highlight), [false, false]);
+
+  const donutChart = donutChartDef.schema.parse({
+    title: "Mix",
+    data: [
+      { label: "A", value: 60 },
+      { label: "B", value: 40 },
+    ],
+  }) as { decimals: number; centerLabel: string; drawSec: number };
+  assert.equal(donutChart.decimals, 0);
+  assert.equal(donutChart.centerLabel, "Total");
+  assert.equal(donutChart.drawSec, 2.4);
+
+  const photos = photoStackDef.schema.parse({
+    photos: [{ src: "/one.jpg" }, { src: "/two.jpg" }],
+  }) as { secondsPerPhoto: number; photos: { focus: string }[] };
+  assert.equal(photos.secondsPerPhoto, 0.72);
+  assert.deepEqual(photos.photos.map((photo) => photo.focus), ["center", "center"]);
 });
 
 test("schema documentation unwraps refined caption word objects", () => {

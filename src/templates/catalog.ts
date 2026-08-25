@@ -29,6 +29,9 @@ export const TEMPLATE_SLUGS = [
   "face-bubble",
   "prompt-box",
   "cortisol-gauge",
+  "donut-breakdown",
+  "donut-chart",
+  "photo-stack",
 ] as const;
 
 export const TEMPLATE_COUNT = TEMPLATE_SLUGS.length;

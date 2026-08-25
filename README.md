@@ -34,7 +34,7 @@ Ask for more and it keeps working the same way:
 
 ## 📦 What is in the box
 
-- 🎨 **29 templates**, all free: captions, lower thirds, countdowns, chat
+- 🎨 **32 templates**, all free: captions, lower thirds, countdowns, chat
   bubbles, charts, quote and tweet cards, audiograms, b-roll frames, steps,
   tickers, stickers and more. Every one is animated in the
   [gallery](https://overlaymotion.com/templates).
