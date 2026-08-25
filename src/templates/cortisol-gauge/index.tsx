@@ -202,5 +202,13 @@ export const cortisolGaugeDef: TemplateDef = {
     showValue: false,
   },
   demoDurationSec: 6,
+  demoMotion: {
+    style: "sway-3d",
+    amount: 0.3,
+    frequency: 0.16,
+    seed: 29,
+    rampSec: 0.7,
+    rampOutSec: 0.7,
+  },
   component: CortisolGauge,
 };

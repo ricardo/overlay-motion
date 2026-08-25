@@ -54,6 +54,8 @@ export type TemplateDef = {
    * off with `motion: { style: "none" }`. An array stacks tracks.
    */
   defaultMotion?: ObjectMotionInput | ObjectMotionInput[];
+  /** Motion used by gallery/detail previews without changing the template's runtime default. */
+  demoMotion?: ObjectMotionInput | ObjectMotionInput[];
   /** Demo overlay `time` window (appear/hold pattern); default `{}`. */
   demoTime?: TimeWindow;
   /** Demo overlay camera, or a stack of them (e.g. pull-out settle after `appear`). */

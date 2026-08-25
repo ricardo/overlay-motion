@@ -114,7 +114,9 @@ export const demoSpecFor = (def: TemplateDef, format: Format): EditSpec =>
         ...(def.demoReveal ? { reveal: def.demoReveal } : {}),
         // Written out rather than left implicit: the copyable JSON is where a
         // caller learns `motion` exists and that it works on any template.
-        ...(def.defaultMotion ? { motion: def.defaultMotion } : {}),
+        ...(def.demoMotion ?? def.defaultMotion
+          ? { motion: def.demoMotion ?? def.defaultMotion }
+          : {}),
         props: def.demoProps,
       },
     ],

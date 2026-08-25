@@ -5,6 +5,7 @@ import {
   cortisolNeedleAngle,
   cortisolValueAtFrame,
 } from "../src/templates/cortisol-gauge";
+import { demoSpecFor } from "../src/templates/registry";
 
 test("cortisol gauge publishes configurable content, motion, and palette", () => {
   const parsed = cortisolGaugeDef.schema.parse({
@@ -50,4 +51,16 @@ test("cortisol gauge maps low, middle, and high readings across the dial", () =>
   assert.equal(cortisolNeedleAngle(10), 0);
   assert.equal(cortisolNeedleAngle(50), 72);
   assert.equal(cortisolNeedleAngle(90), 144);
+});
+
+test("cortisol website demo sways in 3D without changing the runtime default", () => {
+  assert.equal(cortisolGaugeDef.defaultMotion, undefined);
+  assert.deepEqual(demoSpecFor(cortisolGaugeDef, "square").overlays[0].motion, {
+    style: "sway-3d",
+    amount: 0.3,
+    frequency: 0.16,
+    seed: 29,
+    rampSec: 0.7,
+    rampOutSec: 0.7,
+  });
 });
