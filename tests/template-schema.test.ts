@@ -15,6 +15,7 @@ import { parsedMetadata } from "../remotion/Root";
 
 test("lightweight route catalog stays aligned with template registry", () => {
   assert.deepEqual(TEMPLATE_SLUGS, TEMPLATES.map((template) => template.slug));
+  assert.equal(TEMPLATE_SLUGS.at(-1), "cortisol-gauge");
 });
 
 test("schema documentation unwraps refined caption word objects", () => {

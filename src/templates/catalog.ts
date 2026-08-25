@@ -28,6 +28,7 @@ export const TEMPLATE_SLUGS = [
   "sticker",
   "face-bubble",
   "prompt-box",
+  "cortisol-gauge",
 ] as const;
 
 export const TEMPLATE_COUNT = TEMPLATE_SLUGS.length;

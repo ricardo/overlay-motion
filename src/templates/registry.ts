@@ -33,6 +33,7 @@ import { likeSubscribeBellDef, likeSubscribeDef } from "./like-subscribe";
 import { stickerDef } from "./sticker";
 import { faceBubbleDef } from "./face-bubble";
 import { promptBoxDef } from "./prompt-box";
+import { cortisolGaugeDef } from "./cortisol-gauge";
 
 const TEMPLATE_DEFINITIONS: TemplateDef[] = [
   chatBubblesDef,
@@ -63,6 +64,7 @@ const TEMPLATE_DEFINITIONS: TemplateDef[] = [
   stickerDef,
   faceBubbleDef,
   promptBoxDef,
+  cortisolGaugeDef,
 ];
 
 /** All templates are free during the public-library launch. */
